@@ -52,7 +52,7 @@
 	export let webSearchMessages: WebSearchUpdate[];
 
 	const dispatch = createEventDispatcher<{
-		retry: { content: string; id: Message["id"] };
+		reintentar: { content: string; id: Message["id"] };
 		vote: { score: Message["score"]; id: Message["id"] };
 	}>();
 
@@ -245,7 +245,7 @@
 				{#if downloadLink}
 					<a
 						class="rounded-lg border border-gray-100 p-1 text-xs text-gray-400 group-hover:block hover:text-gray-500 dark:border-gray-800 dark:text-gray-400 dark:hover:text-gray-300 md:hidden"
-						title="Download prompt and parameters"
+						title="Descargar prompt y parámetros"
 						type="button"
 						target="_blank"
 						href={downloadLink}
@@ -256,9 +256,9 @@
 				{#if !readOnly}
 					<button
 						class="cursor-pointer rounded-lg border border-gray-100 p-1 text-xs text-gray-400 group-hover:block hover:text-gray-500 dark:border-gray-800 dark:text-gray-400 dark:hover:text-gray-300 md:hidden lg:-right-2"
-						title="Retry"
+						title="Reintantar"
 						type="button"
-						on:click={() => dispatch("retry", { content: message.content, id: message.id })}
+						on:click={() => dispatch("reintentar", { content: message.content, id: message.id })}
 					>
 						<CarbonRotate360 />
 					</button>

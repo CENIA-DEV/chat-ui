@@ -88,7 +88,7 @@
 		>
 			<div class="flex w-full flex-1 border-none bg-transparent">
 				<ChatInput
-					placeholder="Ask anything"
+					placeholder="Ingresa tu pregunta"
 					bind:value={message}
 					on:submit={handleSubmit}
 					on:keypress={() => {
@@ -138,7 +138,7 @@
 					on:click={() => dispatch("share")}
 				>
 					<CarbonExport class="text-[.6rem] sm:mr-1.5 sm:text-primary-500" />
-					<div class="max-sm:hidden">Share this conversation</div>
+					<div class="max-sm:hidden">Compartir la conversación</div>
 				</button>
 			{/if}
 		</div>
