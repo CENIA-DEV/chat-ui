@@ -52,7 +52,7 @@
 	export let webSearchMessages: WebSearchUpdate[];
 
 	const dispatch = createEventDispatcher<{
-		reintentar: { content: string; id: Message["id"] };
+		retry: { content: string; id: Message["id"] };
 		vote: { score: Message["score"]; id: Message["id"] };
 	}>();
 
