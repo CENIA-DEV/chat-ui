@@ -256,7 +256,7 @@
 				{#if !readOnly}
 					<button
 						class="cursor-pointer rounded-lg border border-gray-100 p-1 text-xs text-gray-400 group-hover:block hover:text-gray-500 dark:border-gray-800 dark:text-gray-400 dark:hover:text-gray-300 md:hidden lg:-right-2"
-						title="Reintantar"
+						title="Reintentar"
 						type="button"
 						on:click={() => dispatch("reintentar", { content: message.content, id: message.id })}
 					>
