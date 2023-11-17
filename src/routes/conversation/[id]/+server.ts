@@ -121,14 +121,6 @@ export async function POST({ request, fetch, locals, params, getClientAddress })
 		];
 	})() satisfies Message[];
 
-	if (conv.title.startsWith("Untitled")) {
-		try {
-			conv.title = (await summarize(newPrompt)) ?? conv.title;
-		} catch (e) {
-			console.error(e);
-		}
-	}
-
 	await collections.conversations.updateOne(
 		{
 			_id: convId,
