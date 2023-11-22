@@ -1,6 +1,7 @@
 <script lang="ts">
 	import ChatWindow from "$lib/components/chat/ChatWindow.svelte";
 	import { pendingMessage } from "$lib/stores/pendingMessage";
+	import { isAborted } from "$lib/stores/isAborted";
 	import { onMount } from "svelte";
 	import { page } from "$app/stores";
 	import { goto, invalidate } from "$app/navigation";
@@ -19,7 +20,6 @@
 
 	let messages = data.messages;
 	let lastLoadedMessages = data.messages;
-	let isAborted = false;
 
 	let webSearchMessages: WebSearchUpdate[] = [];
 
@@ -67,7 +67,7 @@
 		if (!message.trim()) return;
 
 		try {
-			isAborted = false;
+			$isAborted = false;
 			loading = true;
 			pending = true;
 
@@ -119,7 +119,7 @@
 				await new Promise((r) => setTimeout(r, 25));
 
 				// check for abort
-				if (isAborted) {
+				if ($isAborted) {
 					reader?.cancel();
 					break;
 				}
@@ -219,7 +219,7 @@
 
 	onMount(async () => {
 		// only used in case of creating new conversations (from the parent POST endpoint)
-		if ($pendingMessage) {
+		if (typeof(messages[messages.length - 1]) === "undefined") {
 			writeMessage($pendingMessage);
 		}
 	});
@@ -250,7 +250,8 @@
 		}
 	}
 
-	$: $page.params.id, (isAborted = true);
+	$: $page.params.id, ($isAborted = true);
+	$: $page.params.id, (pending = false);
 	$: title = data.conversations.find((conv) => conv.id === $page.params.id)?.title ?? data.title;
 
 	$: loginRequired =
@@ -281,7 +282,7 @@
 	on:retry={onRetry}
 	on:vote={(event) => voteMessage(event.detail.score, event.detail.id)}
 	on:share={() => shareConversation($page.params.id, data.title)}
-	on:stop={() => (isAborted = true)}
+	on:stop={() => ($isAborted = true)}
 	models={data.models}
 	currentModel={findCurrentModel([...data.models, ...data.oldModels], data.model)}
 	settings={data.settings}
