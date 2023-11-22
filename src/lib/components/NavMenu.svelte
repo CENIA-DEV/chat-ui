@@ -24,9 +24,9 @@
 	export let user: LayoutData["user"];
 
 	export let loginModalVisible;
-	function handleNuevoChatClick() {
-        isAborted.set(true);
-    }
+	function handleNewChatClick() {
+		isAborted.set(true);
+        }
 </script>
 
 <div class="sticky top-0 flex flex-none items-center justify-between px-3 py-3.5 max-sm:pt-0">
