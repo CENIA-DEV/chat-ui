@@ -9,9 +9,9 @@
 {#if PUBLIC_APP_ASSETS === "chatui"}
 	<object
 		class={classNames}
-		data="{PUBLIC_ORIGIN || $page.url.origin}{base}/{PUBLIC_APP_ASSETS}/chile_atiende.svg"
+		data="{PUBLIC_ORIGIN || $page.url.origin}{base}/{PUBLIC_APP_ASSETS}/logo_ibio.svg"
 		title="{PUBLIC_APP_NAME} logo"
-		width="130"
+		width="140"
 		height="65"
 	/>
 {:else}

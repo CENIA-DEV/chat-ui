@@ -40,7 +40,7 @@
 			</div>
 			<p class="text-base text-gray-600 dark:text-gray-400">
 				<!-- Making the community's best AI chat models available to everyone. -->
-				Encuentra beneficios y servicios del Estado de forma más cercana y simple.
+				Asistente de Inteligencia Artificial para biólogos.
 			</p>
 		</div>
 	</div>

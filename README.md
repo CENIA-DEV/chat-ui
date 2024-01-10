@@ -29,7 +29,7 @@ MONGODB_DIRECT_CONNECTION=false
 
 MODELS=`[
     {
-        "name": "ChileAtiende",
+        "name": "IbioGPT",
         "endpoints": [{"url": "your_endpoint"}],
         "userMessageToken": "User: ",
         "assistantMessageToken": "Assistant: ",
@@ -42,7 +42,7 @@ MODELS=`[
     }
 ]`
 
-PUBLIC_APP_NAME="ChileAtiende"
+PUBLIC_APP_NAME="IbioGPT"
 ```
 
 ## Run
