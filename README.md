@@ -31,8 +31,8 @@ MODELS=`[
     {
         "name": "IbioGPT",
         "endpoints": [{"url": "your_endpoint"}],
-        "userMessageToken": "User: ",
-        "assistantMessageToken": "Assistant: ",
+        "userMessageToken": "||User||: ",
+        "assistantMessageToken": "||Assistant||: ",
         "messageEndToken": "\n",
         "parameters": {
             "temperature": 0.1,
